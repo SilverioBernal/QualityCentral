@@ -1,0 +1,21 @@
+{
+    "environmentSettings": {
+        "webSite": {
+            "name": "OrkIdeaQCWebFront",
+            "location": "South Central US"
+        },
+        "databases": [
+            {
+                "connectionStringName": "DefaultConnection",
+                "databaseName": "OrkIdeaQCWebFront_db",
+                "serverName": "h0ehawyllb",
+                "user": "usutest",
+                "password": "",
+                "edition": "",
+                "size": "",
+                "collation": "",
+                "location": "South Central US"
+            }
+        ]
+    }
+}
