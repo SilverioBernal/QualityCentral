@@ -1,0 +1,12 @@
+C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.Entities\bin\Debug\OrkIdea.QC.Entities.dll.config
+C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.Entities\bin\Debug\OrkIdea.QC.Entities.dll
+C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.Entities\bin\Debug\OrkIdea.QC.Entities.pdb
+C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.Entities\bin\Debug\EntityFramework.dll
+C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.Entities\bin\Debug\EntityFramework.xml
+C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.Entities\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.Entities\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.Entities\obj\Debug\OrkIdea.QC.Entities.csprojResolveAssemblyReference.cache
+C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.Entities\obj\Debug\OrkIdea.QC.Entities.dll
+C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.Entities\obj\Debug\OrkIdea.QC.Entities.pdb

@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QCEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customer" EntityType="QCModel.Customer" />
+    <EntitySet Name="CustomerParameter" EntityType="QCModel.CustomerParameter" />
+    <EntitySet Name="Document" EntityType="QCModel.Document" />
+    <EntitySet Name="DocumentType" EntityType="QCModel.DocumentType" />
+    <EntitySet Name="DocumentVersion" EntityType="QCModel.DocumentVersion" />
+    <EntitySet Name="GenericMenu" EntityType="QCModel.GenericMenu" />
+    <EntitySet Name="GenericParameter" EntityType="QCModel.GenericParameter" />
+    <EntitySet Name="Page" EntityType="QCModel.Page" />
+    <EntitySet Name="Role" EntityType="QCModel.Role" />
+    <EntitySet Name="RoleMenu" EntityType="QCModel.RoleMenu" />
+    <EntitySet Name="SideBar" EntityType="QCModel.SideBar" />
+    <EntitySet Name="UserProfile" EntityType="QCModel.UserProfile" />
+    <EntitySet Name="WorkFlow" EntityType="QCModel.WorkFlow" />
+    <AssociationSet Name="FK_CustomerParameter_Customer" Association="QCModel.FK_CustomerParameter_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="CustomerParameter" EntitySet="CustomerParameter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentType_Customer" Association="QCModel.FK_DocumentType_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="DocumentType" EntitySet="DocumentType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Page_Customer" Association="QCModel.FK_Page_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Page" EntitySet="Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Customer" Association="QCModel.FK_Role_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SideBar_Customer" Association="QCModel.FK_SideBar_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="SideBar" EntitySet="SideBar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_Customer" Association="QCModel.FK_UserProfile_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkFlow_Customer" Association="QCModel.FK_WorkFlow_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="WorkFlow" EntitySet="WorkFlow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_DocumentType" Association="QCModel.FK_Document_DocumentType">
+      <End Role="DocumentType" EntitySet="DocumentType" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentVersion_Document" Association="QCModel.FK_DocumentVersion_Document">
+      <End Role="Document" EntitySet="Document" />
+      <End Role="DocumentVersion" EntitySet="DocumentVersion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_Role" Association="QCModel.FK_UserProfile_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <EntitySet Name="Process" EntityType="QCModel.Process" />
+    <AssociationSet Name="FK_Process_Customer" Association="QCModel.FK_Process_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Process" EntitySet="Process" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_Process" Association="QCModel.FK_Document_Process">
+      <End Role="Process" EntitySet="Process" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CustomerParameter" Relationship="QCModel.FK_CustomerParameter_Customer" FromRole="Customer" ToRole="CustomerParameter" />
+    <NavigationProperty Name="DocumentType" Relationship="QCModel.FK_DocumentType_Customer" FromRole="Customer" ToRole="DocumentType" />
+    <NavigationProperty Name="Page" Relationship="QCModel.FK_Page_Customer" FromRole="Customer" ToRole="Page" />
+    <NavigationProperty Name="Role" Relationship="QCModel.FK_Role_Customer" FromRole="Customer" ToRole="Role" />
+    <NavigationProperty Name="SideBar" Relationship="QCModel.FK_SideBar_Customer" FromRole="Customer" ToRole="SideBar" />
+    <NavigationProperty Name="UserProfile" Relationship="QCModel.FK_UserProfile_Customer" FromRole="Customer" ToRole="UserProfile" />
+    <NavigationProperty Name="WorkFlow" Relationship="QCModel.FK_WorkFlow_Customer" FromRole="Customer" ToRole="WorkFlow" />
+    <NavigationProperty Name="Process" Relationship="QCModel.FK_Process_Customer" FromRole="Customer" ToRole="Process" />
+  </EntityType>
+  <EntityType Name="CustomerParameter">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="valor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer" Relationship="QCModel.FK_CustomerParameter_Customer" FromRole="CustomerParameter" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idProceso" Type="Int32" />
+    <Property Name="idTipoDocumento" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="DocumentType" Relationship="QCModel.FK_Document_DocumentType" FromRole="Document" ToRole="DocumentType" />
+    <NavigationProperty Name="DocumentVersion" Relationship="QCModel.FK_DocumentVersion_Document" FromRole="Document" ToRole="DocumentVersion" />
+    <NavigationProperty Name="Process" Relationship="QCModel.FK_Document_Process" FromRole="Document" ToRole="Process" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="QCModel.FK_DocumentType_Customer" FromRole="DocumentType" ToRole="Customer" />
+    <NavigationProperty Name="Document" Relationship="QCModel.FK_Document_DocumentType" FromRole="DocumentType" ToRole="Document" />
+  </EntityType>
+  <EntityType Name="DocumentVersion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="idDocumento" Type="Int32" Nullable="false" />
+    <Property Name="version" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+    <Property Name="fechaVersion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="versionOficial" Type="Boolean" Nullable="false" />
+    <Property Name="idUsuario" Type="Int32" Nullable="false" />
+    <Property Name="comentarios" Type="String" MaxLength="850" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Document" Relationship="QCModel.FK_DocumentVersion_Document" FromRole="DocumentVersion" ToRole="Document" />
+  </EntityType>
+  <EntityType Name="GenericMenu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idPadre" Type="Int32" />
+    <Property Name="tipo" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="etiqueta" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="url" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+    <Property Name="publico" Type="Boolean" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GenericParameter">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="valor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="requerido" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="titulo" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="contenido" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="imagenPrincipal" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="idCarrusel" Type="Int32" />
+    <Property Name="idSideBarDerecho" Type="Int32" />
+    <Property Name="idSideBarIzquierdo" Type="Int32" />
+    <Property Name="privado" Type="Boolean" Nullable="false" />
+    <Property Name="visible" Type="Boolean" Nullable="false" />
+    <Property Name="metaData" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="keyWord" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer" Relationship="QCModel.FK_Page_Customer" FromRole="Page" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="QCModel.FK_Role_Customer" FromRole="Role" ToRole="Customer" />
+    <NavigationProperty Name="UserProfile" Relationship="QCModel.FK_UserProfile_Role" FromRole="Role" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="RoleMenu">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idPadre" Type="Int32" />
+    <Property Name="idRol" Type="Int32" Nullable="false" />
+    <Property Name="tipo" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="etiqueta" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="url" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SideBar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer" Relationship="QCModel.FK_SideBar_Customer" FromRole="SideBar" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="idRol" Type="Int32" Nullable="false" />
+    <Property Name="usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="clave" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="nombres" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="apellidos" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="foto" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="QCModel.FK_UserProfile_Customer" FromRole="UserProfile" ToRole="Customer" />
+    <NavigationProperty Name="Role" Relationship="QCModel.FK_UserProfile_Role" FromRole="UserProfile" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="WorkFlow">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="QCModel.FK_WorkFlow_Customer" FromRole="WorkFlow" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK_CustomerParameter_Customer">
+    <End Type="QCModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="QCModel.CustomerParameter" Role="CustomerParameter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CustomerParameter">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentType_Customer">
+    <End Type="QCModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="QCModel.DocumentType" Role="DocumentType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DocumentType">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Page_Customer">
+    <End Type="QCModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="QCModel.Page" Role="Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Page">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Customer">
+    <End Type="QCModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="QCModel.Role" Role="Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SideBar_Customer">
+    <End Type="QCModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="QCModel.SideBar" Role="SideBar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SideBar">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_Customer">
+    <End Type="QCModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="QCModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkFlow_Customer">
+    <End Type="QCModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="QCModel.WorkFlow" Role="WorkFlow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="WorkFlow">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_DocumentType">
+    <End Type="QCModel.DocumentType" Role="DocumentType" Multiplicity="1" />
+    <End Type="QCModel.Document" Role="Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="idTipoDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentVersion_Document">
+    <End Type="QCModel.Document" Role="Document" Multiplicity="1" />
+    <End Type="QCModel.DocumentVersion" Role="DocumentVersion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Document">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DocumentVersion">
+        <PropertyRef Name="idDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_Role">
+    <End Type="QCModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="QCModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Process">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="idProcesoPadre" Type="Int32" />
+    <Property Name="idResponsable" Type="Int32" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="QCModel.FK_Process_Customer" FromRole="Process" ToRole="Customer" />
+    <NavigationProperty Name="Document" Relationship="QCModel.FK_Document_Process" FromRole="Process" ToRole="Document" />
+  </EntityType>
+  <Association Name="FK_Process_Customer">
+    <End Type="QCModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="QCModel.Process" Role="Process" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Process">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_Process">
+    <End Type="QCModel.Process" Role="Process" Multiplicity="0..1" />
+    <End Type="QCModel.Document" Role="Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Process">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="idProceso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

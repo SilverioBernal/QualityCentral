@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QCModelStoreContainer" CdmEntityContainer="QCEntities">
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="QCModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerParameter">
+      <EntityTypeMapping TypeName="QCModel.CustomerParameter">
+        <MappingFragment StoreEntitySet="CustomerParameter">
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Document">
+      <EntityTypeMapping TypeName="QCModel.Document">
+        <MappingFragment StoreEntitySet="Document">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idTipoDocumento" ColumnName="idTipoDocumento" />
+          <ScalarProperty Name="idProceso" ColumnName="idProceso" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentType">
+      <EntityTypeMapping TypeName="QCModel.DocumentType">
+        <MappingFragment StoreEntitySet="DocumentType">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentVersion">
+      <EntityTypeMapping TypeName="QCModel.DocumentVersion">
+        <MappingFragment StoreEntitySet="DocumentVersion">
+          <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="versionOficial" ColumnName="versionOficial" />
+          <ScalarProperty Name="fechaVersion" ColumnName="fechaVersion" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="idDocumento" ColumnName="idDocumento" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GenericMenu">
+      <EntityTypeMapping TypeName="QCModel.GenericMenu">
+        <MappingFragment StoreEntitySet="GenericMenu">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="publico" ColumnName="publico" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="etiqueta" ColumnName="etiqueta" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="idPadre" ColumnName="idPadre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GenericParameter">
+      <EntityTypeMapping TypeName="QCModel.GenericParameter">
+        <MappingFragment StoreEntitySet="GenericParameter">
+          <ScalarProperty Name="requerido" ColumnName="requerido" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Page">
+      <EntityTypeMapping TypeName="QCModel.Page">
+        <MappingFragment StoreEntitySet="Page">
+          <ScalarProperty Name="keyWord" ColumnName="keyWord" />
+          <ScalarProperty Name="metaData" ColumnName="metaData" />
+          <ScalarProperty Name="visible" ColumnName="visible" />
+          <ScalarProperty Name="privado" ColumnName="privado" />
+          <ScalarProperty Name="idSideBarIzquierdo" ColumnName="idSideBarIzquierdo" />
+          <ScalarProperty Name="idSideBarDerecho" ColumnName="idSideBarDerecho" />
+          <ScalarProperty Name="idCarrusel" ColumnName="idCarrusel" />
+          <ScalarProperty Name="imagenPrincipal" ColumnName="imagenPrincipal" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="QCModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleMenu">
+      <EntityTypeMapping TypeName="QCModel.RoleMenu">
+        <MappingFragment StoreEntitySet="RoleMenu">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="etiqueta" ColumnName="etiqueta" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="idPadre" ColumnName="idPadre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SideBar">
+      <EntityTypeMapping TypeName="QCModel.SideBar">
+        <MappingFragment StoreEntitySet="SideBar">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfile">
+      <EntityTypeMapping TypeName="QCModel.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkFlow">
+      <EntityTypeMapping TypeName="QCModel.WorkFlow">
+        <MappingFragment StoreEntitySet="WorkFlow">
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Process">
+      <EntityTypeMapping TypeName="QCModel.Process">
+        <MappingFragment StoreEntitySet="Process">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="idResponsable" ColumnName="idResponsable" />
+          <ScalarProperty Name="idProcesoPadre" ColumnName="idProcesoPadre" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

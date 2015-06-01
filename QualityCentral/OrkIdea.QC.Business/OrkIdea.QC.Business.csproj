@@ -39,8 +39,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BizCMS.cs" />
+    <Compile Include="BizCustomer.cs" />
+    <Compile Include="BizDocument.cs" />
+    <Compile Include="BizMenu.cs" />
+    <Compile Include="BizParameter.cs" />
+    <Compile Include="BizProcess.cs" />
+    <Compile Include="BizRole.cs" />
+    <Compile Include="BizUserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OrkIdea.QC.DAL\OrkIdea.QC.DAL.csproj">
+      <Project>{3f2c2aba-e7d5-40eb-a912-d0e7b377bf17}</Project>
+      <Name>OrkIdea.QC.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrkIdea.QC.Entities\OrkIdea.QC.Entities.csproj">
+      <Project>{9b117193-f051-46f8-8d75-f6b2e5067e51}</Project>
+      <Name>OrkIdea.QC.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrkIdea.QC.Utilities\OrkIdea.QC.Utilities.csproj">
+      <Project>{29695b95-0afb-4a1c-87fe-b4d9fdd84574}</Project>
+      <Name>OrkIdea.QC.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

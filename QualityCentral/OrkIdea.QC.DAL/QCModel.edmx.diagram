@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f0202e4d333243ab8bea9d511aad423a" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="QCModel.Customer" Width="1.5" PointX="0.75" PointY="11.25" />
+        <EntityTypeShape EntityType="QCModel.CustomerParameter" Width="1.5" PointX="3" PointY="5.75" />
+        <EntityTypeShape EntityType="QCModel.Document" Width="1.5" PointX="5.25" PointY="14.125" />
+        <EntityTypeShape EntityType="QCModel.DocumentType" Width="1.5" PointX="3" PointY="8.25" />
+        <EntityTypeShape EntityType="QCModel.DocumentVersion" Width="1.5" PointX="7.5" PointY="14.25" />
+        <EntityTypeShape EntityType="QCModel.GenericMenu" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QCModel.GenericParameter" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QCModel.Page" Width="1.5" PointX="3" PointY="13.75" />
+        <EntityTypeShape EntityType="QCModel.Role" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="QCModel.RoleMenu" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="QCModel.SideBar" Width="1.5" PointX="3" PointY="11.125" />
+        <EntityTypeShape EntityType="QCModel.UserProfile" Width="1.5" PointX="5.25" PointY="6.875" />
+        <EntityTypeShape EntityType="QCModel.WorkFlow" Width="1.5" PointX="3" PointY="18" />
+        <AssociationConnector Association="QCModel.FK_CustomerParameter_Customer" />
+        <AssociationConnector Association="QCModel.FK_DocumentType_Customer" />
+        <AssociationConnector Association="QCModel.FK_Page_Customer" />
+        <AssociationConnector Association="QCModel.FK_Role_Customer" />
+        <AssociationConnector Association="QCModel.FK_SideBar_Customer" />
+        <AssociationConnector Association="QCModel.FK_UserProfile_Customer" />
+        <AssociationConnector Association="QCModel.FK_WorkFlow_Customer" />
+        <AssociationConnector Association="QCModel.FK_Document_DocumentType" />
+        <AssociationConnector Association="QCModel.FK_DocumentVersion_Document" />
+        <AssociationConnector Association="QCModel.FK_UserProfile_Role" />
+        <EntityTypeShape EntityType="QCModel.Process" Width="1.5" PointX="3" PointY="20.5" />
+        <AssociationConnector Association="QCModel.FK_Process_Customer" />
+        <AssociationConnector Association="QCModel.FK_Document_Process" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

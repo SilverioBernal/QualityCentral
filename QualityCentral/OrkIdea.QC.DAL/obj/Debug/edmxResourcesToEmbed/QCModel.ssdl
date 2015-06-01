@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerParameter">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="idCliente" Type="int" Nullable="false" />
+    <Property Name="valor" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idProceso" Type="int" />
+    <Property Name="idTipoDocumento" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="800" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCliente" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentVersion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="idDocumento" Type="int" Nullable="false" />
+    <Property Name="version" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="fechaVersion" Type="datetime" Nullable="false" />
+    <Property Name="versionOficial" Type="bit" Nullable="false" />
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+    <Property Name="comentarios" Type="varchar" MaxLength="850" />
+  </EntityType>
+  <EntityType Name="GenericMenu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPadre" Type="int" />
+    <Property Name="tipo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="etiqueta" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="350" />
+    <Property Name="publico" Type="bit" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GenericParameter">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="valor" Type="varchar(max)" />
+    <Property Name="requerido" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="idCliente" Type="int" Nullable="false" />
+    <Property Name="titulo" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="contenido" Type="varchar(max)" Nullable="false" />
+    <Property Name="imagenPrincipal" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="idCarrusel" Type="int" />
+    <Property Name="idSideBarDerecho" Type="int" />
+    <Property Name="idSideBarIzquierdo" Type="int" />
+    <Property Name="privado" Type="bit" Nullable="false" />
+    <Property Name="visible" Type="bit" Nullable="false" />
+    <Property Name="metaData" Type="varchar" MaxLength="250" />
+    <Property Name="keyWord" Type="varchar" MaxLength="350" />
+  </EntityType>
+  <EntityType Name="Process">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCliente" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="idProcesoPadre" Type="int" />
+    <Property Name="idResponsable" Type="int" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCliente" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoleMenu">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="idPadre" Type="int" />
+    <Property Name="idRol" Type="int" Nullable="false" />
+    <Property Name="tipo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="etiqueta" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="350" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SideBar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCliente" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCliente" Type="int" Nullable="false" />
+    <Property Name="idRol" Type="int" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="nombres" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="apellidos" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="foto" Type="varchar" MaxLength="350" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkFlow">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCliente" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CustomerParameter_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="CustomerParameter" Type="Self.CustomerParameter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CustomerParameter">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_DocumentType">
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="idTipoDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_Process">
+    <End Role="Process" Type="Self.Process" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Process">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="idProceso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentType_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DocumentType">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentVersion_Document">
+    <End Role="Document" Type="Self.Document" Multiplicity="1" />
+    <End Role="DocumentVersion" Type="Self.DocumentVersion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Document">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DocumentVersion">
+        <PropertyRef Name="idDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Page_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Page" Type="Self.Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Page">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Process_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Process" Type="Self.Process" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Process">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Role" Type="Self.Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SideBar_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="SideBar" Type="Self.SideBar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SideBar">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkFlow_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="WorkFlow" Type="Self.WorkFlow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="WorkFlow">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QCModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerParameter" EntityType="Self.CustomerParameter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentType" EntityType="Self.DocumentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentVersion" EntityType="Self.DocumentVersion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GenericMenu" EntityType="Self.GenericMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GenericParameter" EntityType="Self.GenericParameter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Page" EntityType="Self.Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Process" EntityType="Self.Process" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleMenu" EntityType="Self.RoleMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SideBar" EntityType="Self.SideBar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkFlow" EntityType="Self.WorkFlow" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CustomerParameter_Customer" Association="Self.FK_CustomerParameter_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="CustomerParameter" EntitySet="CustomerParameter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_DocumentType" Association="Self.FK_Document_DocumentType">
+      <End Role="DocumentType" EntitySet="DocumentType" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_Process" Association="Self.FK_Document_Process">
+      <End Role="Process" EntitySet="Process" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentType_Customer" Association="Self.FK_DocumentType_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="DocumentType" EntitySet="DocumentType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentVersion_Document" Association="Self.FK_DocumentVersion_Document">
+      <End Role="Document" EntitySet="Document" />
+      <End Role="DocumentVersion" EntitySet="DocumentVersion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Page_Customer" Association="Self.FK_Page_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Page" EntitySet="Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Process_Customer" Association="Self.FK_Process_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Process" EntitySet="Process" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Customer" Association="Self.FK_Role_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SideBar_Customer" Association="Self.FK_SideBar_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="SideBar" EntitySet="SideBar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_Customer" Association="Self.FK_UserProfile_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_Role" Association="Self.FK_UserProfile_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkFlow_Customer" Association="Self.FK_WorkFlow_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="WorkFlow" EntitySet="WorkFlow" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

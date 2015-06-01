@@ -30,8 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,8 +48,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CRUDCustomer.cs" />
+    <Compile Include="CRUDCustomerParameter.cs" />
+    <Compile Include="CRUDDocument.cs" />
+    <Compile Include="CRUDDocumentType.cs" />
+    <Compile Include="CRUDDocumentVersion.cs" />
+    <Compile Include="CRUDGenericParameter.cs" />
+    <Compile Include="CRUDPage.cs" />
+    <Compile Include="CRUDProcess.cs" />
+    <Compile Include="CRUDSideBar.cs" />
+    <Compile Include="EntityFrameworkHelper.cs" />
+    <Compile Include="CRUDGenericMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QCDataModel.Context.cs">
+      <DependentUpon>QCDataModel.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="QCModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QCModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="CRUDRole.cs" />
+    <Compile Include="CRUDRoleMenu.cs" />
+    <Compile Include="CRUDUserProfile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="QCModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QCModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="QCDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QCDataModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="QCModel.edmx.diagram">
+      <DependentUpon>QCModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OrkIdea.QC.Entities\OrkIdea.QC.Entities.csproj">
+      <Project>{9b117193-f051-46f8-8d75-f6b2e5067e51}</Project>
+      <Name>OrkIdea.QC.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

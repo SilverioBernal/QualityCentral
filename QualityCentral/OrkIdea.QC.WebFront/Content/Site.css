@@ -1,6 +1,11 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+@import "animate.css";
+@import "jquery.easy-pie-chart.css";
+body {
+    /*padding-top: 50px;
+    padding-bottom: 20px;*/
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +26,69 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.content .box img {
+  width: 100%;
+}
+
+/*NavBar*/
+.navbar {
+  margin-bottom: 0px;
+}
+.navbar.navbar-default {
+  background-color: red /*#323543*/;
+  border-color: #27292f;
+  border-radius: 0px;
+  border-bottom: 4px solid #26272f;
+}
+.navbar.navbar-default .navbar-brand {
+  color: #777777;
+}
+.navbar.navbar-default .navbar-nav.navbar-social-links {
+  margin-left: 40px;
+}
+.navbar.navbar-default .navbar-nav > li > a {
+  color: #8093a3;
+  font-weight: 800;
+  font-family: "Droid Sans";
+  line-height: 46px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.navbar.navbar-default .navbar-nav > li > a:hover {
+  color: white;
+}
+.navbar.navbar-default .navbar-nav > li.active > a,
+.navbar.navbar-default .navbar-nav > li.active > a:focus,
+.navbar.navbar-default .navbar-nav > li.active > a:hover {
+  background-color: #1e202c;
+  color: white;
+}
+.navbar.navbar-default .navbar-nav > li.open .dropdown-menu {
+  margin-top: 5px;
+}
+.navbar.navbar-default .navbar-nav > li.open > a,
+.navbar.navbar-default .navbar-nav > li.open.open > a:hover,
+.navbar.navbar-default .navbar-nav > li.open.open > a:focus {
+  background-color: #27292f;
+  color: white;
+}
+.navbar-brand {
+  color: white !important;
+  font-size: 32px;
+  line-height: 40px;
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: 700;
+}
+.navbar-brand span.logo {
+  border: 2px solid #6c7283;
+  padding: 5px;
+  border-radius: 8px;
+}
+.navbar-brand:hover {
+  color: #6c7283;
+}
+.navbar-brand strong {
+  color: #6c7283;
 }
