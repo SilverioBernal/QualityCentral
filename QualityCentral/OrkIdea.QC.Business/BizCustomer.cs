@@ -10,40 +10,70 @@ namespace OrkIdea.QC.Business
 {
     public class BizCustomer
     {
-        public List<Customer> GetCustomers()
+        public static IList<Customer> GetList()
         {
-            return CRUDCustomer.GetCustomerList();
+            EntityCRUD<Customer> ec = new EntityCRUD<Customer>();
+            return ec.GetAll();
         }
 
-        public Customer GetCustomer(int customerId)
+        public static IList<Customer> GetList(bool active)
         {
-            return CRUDCustomer.GetCustomerByKey(customerId);
+            EntityCRUD<Customer> ec = new EntityCRUD<Customer>();
+            return ec.GetList(c => c.activo.Equals(active));
         }
 
-        public void SaveCustomer(Customer customer)
+        public static Customer GetSingle(int id)
         {
-            CRUDCustomer.SaveCustomer(customer);
+            EntityCRUD<Customer> ec = new EntityCRUD<Customer>();
+            return ec.GetSingle(c => c.id.Equals(id));
         }
 
-        public void DeleteCustomer(int customerId)
+        public static Customer GetSingle(string name)
         {
-            CRUDCustomer.DeleteCustomer(customerId);
+            EntityCRUD<Customer> ec = new EntityCRUD<Customer>();
+            return ec.GetSingle(c => c.nombre.Equals(name));
+        }        
+
+        public static void Add(params Customer[] customers)
+        {
+            EntityCRUD<Customer> ec = new EntityCRUD<Customer>();
+            
+            ec.Add(customers);
         }
 
-        public void EnableCustomer(int customerId)
+        public static void Update(params Customer[] customers)
         {
-            Customer customer = GetCustomer(customerId);
-            customer.activo = true;
+            EntityCRUD<Customer> ec = new EntityCRUD<Customer>();
 
-            SaveCustomer(customer);
+            ec.Update(customers);
         }
 
-        public void DisableCustomer(int customerId)
+        public static void Remove(params Customer[] customers)
         {
-            Customer customer = GetCustomer(customerId);
-            customer.activo = false;
-
-            SaveCustomer(customer);
+            EntityCRUD<Customer> ec = new EntityCRUD<Customer>();
+            ec.Remove(customers);
         }
+
+        public void Enable(params Customer[] customers)
+        {
+            foreach (Customer item in customers)
+            {
+                Customer customer = GetSingle(item.id);
+                customer.activo = true;
+
+                Update(customer);
+            }
+        }
+
+        public void Disable(params Customer[] customers)
+        {
+            foreach (Customer item in customers)
+            {
+                Customer customer = GetSingle(item.id);
+                customer.activo = false;
+
+                Update(customer);
+            }
+        }        
     }
 }

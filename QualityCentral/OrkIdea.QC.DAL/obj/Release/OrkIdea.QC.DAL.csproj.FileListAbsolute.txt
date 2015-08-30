@@ -1,0 +1,14 @@
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Release\OrkIdea.QC.DAL.dll.config
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Release\OrkIdea.QC.DAL.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Release\OrkIdea.QC.DAL.pdb
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Release\EntityFramework.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Release\OrkIdea.QC.Entities.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Release\OrkIdea.QC.Entities.pdb
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Release\EntityFramework.xml
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Release\es\EntityFramework.resources.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Release\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\obj\Release\OrkIdea.QC.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\obj\Release\OrkIdea.QC.DAL.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\obj\Release\OrkIdea.QC.DAL.pdb

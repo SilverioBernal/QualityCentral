@@ -12,3 +12,17 @@ C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\
 C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\obj\Debug\OrkIdea.QC.DAL.csprojResolveAssemblyReference.cache
 C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\obj\Debug\OrkIdea.QC.DAL.dll
 C:\Users\SILVERIO\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\obj\Debug\OrkIdea.QC.DAL.pdb
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Debug\EntityFramework.xml
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Debug\OrkIdea.QC.DAL.dll.config
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Debug\OrkIdea.QC.DAL.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Debug\OrkIdea.QC.DAL.pdb
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Debug\EntityFramework.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Debug\OrkIdea.QC.Entities.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Debug\OrkIdea.QC.Entities.pdb
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\obj\Debug\OrkIdea.QC.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\obj\Debug\OrkIdea.QC.DAL.dll
+C:\Users\Aguila1\Source\Repos\QualityCentral\QualityCentral\OrkIdea.QC.DAL\obj\Debug\OrkIdea.QC.DAL.pdb

@@ -10,63 +10,76 @@ namespace OrkIdea.QC.Business
 {
     public class BizRole
     {
-        public List<Role> GetRoles()
+        public static IList<Role> GetList()
         {
-            return CRUDRole.GetRoleList();
+            EntityCRUD<Role> ec = new EntityCRUD<Role>();
+            return ec.GetAll();
         }
 
-        public Role GetRole(int roleId)
+        public static IList<Role> GetList(int customerId)
         {
-            return CRUDRole.GetRoleByKey(roleId);
+            EntityCRUD<Role> ec = new EntityCRUD<Role>();
+            return ec.GetAll(c => c.idCliente.Equals(customerId));
         }
 
-        public void SaveRole(Role role)
+        public static IList<Role> GetList(int customerId, bool active)
         {
-            CRUDRole.SaveRole(role);
+            EntityCRUD<Role> ec = new EntityCRUD<Role>();
+            return ec.GetList(c => c.idCliente.Equals(customerId) && c.activo.Equals(active));
         }
 
-        public void DisableRole(int roleId)
+        public static Role GetSingle(int id)
         {
-            BizMenu bizMenu = new BizMenu();
-            BizUserProfile bizUserProfile = new BizUserProfile();
+            EntityCRUD<Role> ec = new EntityCRUD<Role>();
+            return ec.GetSingle(c => c.id.Equals(id));
+        }
 
-            Role roleToDisable = CRUDRole.GetRoleByKey(roleId);
+        public static Role GetSingle(int customerId, string name)
+        {
+            EntityCRUD<Role> ec = new EntityCRUD<Role>();
+            return ec.GetSingle(c => c.idCliente.Equals(customerId) && c.nombre.Equals(name));
+        }
 
-            if (roleToDisable != null)
+        public static void Add(params Role[] roles)
+        {
+            EntityCRUD<Role> ec = new EntityCRUD<Role>();
+
+            ec.Add(roles);
+        }
+
+        public static void Update(params Role[] roles)
+        {
+            EntityCRUD<Role> ec = new EntityCRUD<Role>();
+
+            ec.Update(roles);
+        }
+
+        public static void Remove(params Role[] roles)
+        {
+            EntityCRUD<Role> ec = new EntityCRUD<Role>();
+            ec.Remove(roles);
+        }
+
+        public void Enable(params Role[] roles)
+        {
+            foreach (Role item in roles)
             {
-                bizMenu.DisableRoleMenu(roleId);
+                Role role = GetSingle(item.id);
+                role.activo = true;
 
-                List<UserProfile> lsUserProfile = bizUserProfile.GetUserProfiles(roleToDisable.idCliente, roleToDisable.id);
-
-                foreach (UserProfile item in lsUserProfile)
-                    bizUserProfile.SaveUserProfile(new UserProfile() { id = item.id }, BizUserProfile.UserProfileAction.Disable);
-
-                roleToDisable.activo = false;
-                CRUDRole.SaveRole(roleToDisable);
+                Update(role);
             }
-            
         }
 
-        public void DeleteRole(int roleId)
+        public void Disable(params Role[] roles)
         {
-            BizMenu bizMenu = new BizMenu();
-            BizUserProfile bizUserProfile = new BizUserProfile();
-
-            Role roleToDelete = CRUDRole.GetRoleByKey(roleId);
-
-            if (roleToDelete != null)
+            foreach (Role item in roles)
             {
-                List<UserMenu> lsRoleMenu = bizMenu.GetRoleMenu(roleToDelete.id);
-                List<UserProfile> lsUserProfile = bizUserProfile.GetUserProfiles(roleToDelete.idCliente, roleToDelete.id);
+                Role role = GetSingle(item.id);
+                role.activo = false;
 
-                foreach (UserMenu item in lsRoleMenu)
-                    bizMenu.DeleteRoleMenuItem(item.id, roleToDelete.id);
-
-                foreach (UserProfile item in lsUserProfile)                
-                    bizUserProfile.DeleteUserProfile(item.id);                
-
-                CRUDRole.DeleteRole(roleId);
+                Update(role);
             }
-        }
+        }        
     }
 }

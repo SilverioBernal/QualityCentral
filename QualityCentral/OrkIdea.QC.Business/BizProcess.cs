@@ -10,90 +10,95 @@ namespace OrkIdea.QC.Business
 {
     public class BizProcess
     {
-        public List<Process> GetProcesses()
+        public static IList<Process> GetList()
         {
-            return CRUDProcess.GetProcessList();
+            EntityCRUD<Process> ec = new EntityCRUD<Process>();
+            return ec.GetAll();
         }
 
-        public List<Process> GetProcesses(int customerId)
+        public static IList<Process> GetList(bool active)
         {
-            return CRUDProcess.GetProcessList(customerId);
+            EntityCRUD<Process> ec = new EntityCRUD<Process>();
+            return ec.GetList(c => c.activo.Equals(active));
         }
 
-        public List<Process> GetProcesses(int customerId, bool active)
+        public static IList<Process> GetList(int customerId)
         {
-            return CRUDProcess.GetProcessList(customerId).Where(x => x.activo.Equals(active)).ToList();
+            EntityCRUD<Process> ec = new EntityCRUD<Process>();
+            return ec.GetList(c => c.idCliente.Equals(customerId));
         }
 
-        public List<Process> GetChildProcesses(int parentProcessId)
+        public static IList<Process> GetList(int customerId, bool active)
         {
-            Process process = GetProcess(parentProcessId);
-
-            List<Process> customerProcesses = GetProcesses(process.idCliente);
-
-            return  customerProcesses.Where(x=> x.idProcesoPadre.Equals(parentProcessId)).ToList();
+            EntityCRUD<Process> ec = new EntityCRUD<Process>();
+            return ec.GetList(c => c.idCliente.Equals(customerId)).Where(c => c.activo.Equals(active)).ToList();
         }
 
-        public List<Process> GetChildProcesses(int parentProcessId, bool active)
+        public static IList<Process> GetList(int customerId, int parentProcess)
         {
-            Process process = GetProcess(parentProcessId);
-
-            List<Process> customerProcesses = GetProcesses(process.idCliente);
-
-            return customerProcesses.Where(x => x.idProcesoPadre.Equals(parentProcessId) && x.activo.Equals(active)).ToList();
+            EntityCRUD<Process> ec = new EntityCRUD<Process>();
+            return ec.GetList(c => c.idProcesoPadre.Equals(customerId)).Where(c => c.idCliente.Equals(customerId)).ToList();
         }
 
-        public Process GetProcess(int processId)
+        public static IList<Process> GetList(int customerId, int parentProcess, bool active)
         {
-            return CRUDProcess.GetProcessByKey(processId);
+            EntityCRUD<Process> ec = new EntityCRUD<Process>();
+            return ec.GetList(c => c.idProcesoPadre.Equals(customerId))
+                .Where(c => c.idCliente.Equals(customerId) && c.activo.Equals(active)).ToList();
         }
 
-        public void SaveProcess(Process process)
+        public static Process GetSingle(int id)
         {
-            CRUDProcess.SaveProcess(process);
+            EntityCRUD<Process> ec = new EntityCRUD<Process>();
+            return ec.GetSingle(c => c.id.Equals(id));
         }
 
-        public void EnableProcess(int processId)
+        public static Process GetSingle(string name)
         {
-            Process process = GetProcess(processId);
+            EntityCRUD<Process> ec = new EntityCRUD<Process>();
+            return ec.GetSingle(c => c.nombre.Equals(name));
+        }        
 
-            process.activo = true;
+        public static void Add(params Process[] processes)
+        {
+            EntityCRUD<Process> ec = new EntityCRUD<Process>();
 
-            SaveProcess(process);
-
+            ec.Add(processes);
         }
 
-        public void DisableProcess(int processId)
+        public static void Update(params Process[] processes)
         {
-            BizDocument bizDocument = new BizDocument();
-            Process process = GetProcess(processId);
+            EntityCRUD<Process> ec = new EntityCRUD<Process>();
 
-            List<Document> processDocuments = bizDocument.GetDocumentsByProcess(processId, true);
-
-            foreach (Document item in processDocuments)            
-                bizDocument.DisableDocument(item.id);            
-
-            process.activo = false;
-
-            SaveProcess(process);
+            ec.Update(processes);
         }
 
-        public void DeleteProcess(int processId)
+        public static void Remove(params Process[] processes)
         {
-            BizDocument bizDocument = new BizDocument();
-            Process process = GetProcess(processId);
+            EntityCRUD<Process> ec = new EntityCRUD<Process>();
+            ec.Remove(processes);
+        }
 
-            List<Document> processDocuments = bizDocument.GetDocumentsByProcess(processId, true);
-
-            foreach (Document item in processDocuments)
+        public void Enable(params Process[] processes)
+        {
+            foreach (Process item in processes)
             {
-                item.activo = false;
-                item.Process = null;
+                Process process = GetSingle(item.id);
+                process.activo = true;
 
-                bizDocument.SaveDocument(item);
+                Update(process);
             }
-                        
-            CRUDProcess.DeleteProcess(processId);
         }
+
+        public void Disable(params Process[] processes)
+        {
+            foreach (Process item in processes)
+            {
+                Process process = GetSingle(item.id);
+                process.activo = false;
+
+                Update(process);
+            }
+        }       
     }
 }
